@@ -1,10 +1,10 @@
 /* eslint-disable indent, linebreak-style */
 import React from "react";
 import "./App.css";
+import Player from "./Player";
 
 const PlayerScore = (props) => {
   const sort = props.typeOfSort;
-  console.log(sort);
   let myData;
   if (sort === "ascending") {
     myData = [].concat(props.players).sort((a, b) => (a.s < b.s ? 1 : -1));
@@ -17,10 +17,7 @@ const PlayerScore = (props) => {
         <tbody>
           {myData.map((player, index) => {
             return (
-              <tr key={index}>
-                <td>{player.n}</td>
-                <td className="text-danger">{player.s}</td>
-              </tr>
+              < Player index={index} player1={player} />
             );
           })}
         </tbody>
